@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Test Harness</h1>
+
+<fieldset>
+    <legend>Run all Tests</legend>
+<a href="http://www.localhost:8081/runTests" target="_blank"></a><button class="button">Run</button>
+</fieldset>
+
+<fieldset>
+    <legend>Run Feature File</legend>
+<form id="featureForm" method="GET"><label for="features"></label>
+    <select id="features" name="features">
+        <option th:each="features : ${features}" th:value="${features}" th:text="${features}"></option>
+    </select>
+    <input type="submit" value="Submit" class="submit">
+</form>
+</fieldset>
+
+
+<fieldset>
+    <legend>Run Tag</legend>
+<form id="tagForm" method="GET"><label for="tag"></label>
+    <select id="tag" name="tag">
+        <option th:each="tag : ${tags}" th:value="${tag}" th:text="${tag}"></option>
+    </select>
+
+<input type="submit" value="Submit" class="submit">
+</form>
+</fieldset>
+
+<script>
+        document.getElementById('tagForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const selectedTag = document.getElementById('tag').value;
+            if (selectedTag) {
+                const url = `http://localhost:8081/runTestsByGroup?tag=${encodeURIComponent(selectedTag)}`;
+                window.location.href = url;
+            }
+        });
+
+        document.getElementById('featureForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const selectedFeature = document.getElementById('features').value;
+            if (selectedFeature) {
+                const url = `http://localhost:8081/runTestsByFeatureName?feature=${encodeURIComponent(selectedFeature)}`;
+                window.location.href = url;
+            }
+        });
+</script>
+
+
+
+
+</body>
+
+</html>

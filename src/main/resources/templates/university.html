@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University API</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<h1>University API</h1>
+<body>
+
+<fieldset>
+    <legend>Search By Name</legend>
+<form id="searchByName">
+    <input type="text" id="sbn" name="inputValue" placeholder="Name">
+    <input type="submit" value="Submit">
+</form>
+</fieldset>
+
+<fieldset>
+    <legend>Search By Country</legend>
+<form id="searchByCountry">
+    <input type="text" id="sbc" name="inputValue" placeholder="Country">
+    <input type="submit" value="Submit">
+</form>
+</fieldset>
+
+<fieldset>
+    <legend>Search By Name & Country</legend>
+<form id="searchByNameAndCountry">
+    <input type="text" id="n" name="inputValue" placeholder="Name">
+    <br>
+    <input type="text" id="c" name="inputValue" placeholder="Country">
+    <input type="submit" value="Submit">
+</form>
+</fieldset>
+
+<script>
+    function handleSubmit(event, endpoint) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const inputValue = event.target.querySelector('input[name="inputValue"]').value;
+        const url = `http://localhost:8081/${endpoint}?${endpoint === 'searchByName' ? 'name' : 'country'}=${encodeURIComponent(inputValue)}`;
+
+        // You can use this URL to trigger your endpoint or perform any other action with the entered value
+        console.log('Triggering endpoint with value:', inputValue);
+        console.log('Endpoint URL:', url);
+
+        event.target.querySelector('input[name="inputValue"]').value = '';
+        window.location.href = url;
+    }
+
+    function handleNameAndCountry(event, endpoint) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const inputValueName = event.target.querySelector('input[id="n"]').value;
+        const inputValueCountry = event.target.querySelector('input[id="c"]').value;
+        const url = `http://localhost:8081/${endpoint}?name=${encodeURIComponent(inputValueName)}&country=${encodeURIComponent(inputValueCountry)}`;
+
+        // You can use this URL to trigger your endpoint or perform any other action with the entered value
+        console.log('Endpoint URL:', url);
+
+        event.target.querySelector('input[id="n"]').value = '';
+        window.location.href = url;
+    }
+
+
+
+    document.getElementById('searchByName').addEventListener('submit', function (event) {
+        handleSubmit(event, 'searchByName');
+    });
+
+    document.getElementById('searchByCountry').addEventListener('submit', function (event) {
+        handleSubmit(event, 'searchByCountry');
+    });
+
+    document.getElementById('searchByNameAndCountry').addEventListener('submit', function (event) {
+        handleNameAndCountry(event, 'searchByNameAndCountry');
+    });
+</script>
+
+</body>
+</html>
