@@ -10,4 +10,17 @@ Feature: Search
     Given I perform a search without any query parameters
     And I set the endpoint to "/random"
     When I send the request
-    Then the response code should be 404 "Not Found"
+    Then the response code should be 404 "NOT FOUND"
+
+
+  Scenario: An invalid limit query parameter returns a 500 Internal Server Error
+    Given I perform a search without any query parameters
+    And I set the endpoint to "/search?limit=a"
+    When I send the request
+    Then the response code should be 500 "INTERNAL SERVER ERROR"
+
+    Scenario: An invalid offset query parameter returns a 500 Internal Server Error
+    Given I perform a search without any query parameters
+    And I set the endpoint to "/search?offset=a"
+    When I send the request
+    Then the response code should be 500 "INTERNAL SERVER ERROR"

@@ -32,7 +32,11 @@ public class HttpDispatcher {
         try {
             response = request.asJson();
         } catch (UnirestException e) {
-            throw new RuntimeException(e);
+            try {
+                response = request.asString();
+            } catch (UnirestException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
         gateway.setHttpRequest(request);

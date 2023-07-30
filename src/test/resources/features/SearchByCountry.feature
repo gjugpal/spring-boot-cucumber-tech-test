@@ -30,4 +30,4 @@ Feature: Search By Country
     When I set the offset to 3
     And I send the request
     Then the response code should be 200 "OK"
-    Then the second response should return the same universities apart from the first 2
+    Then the second response should return the same universities apart from the first 3
