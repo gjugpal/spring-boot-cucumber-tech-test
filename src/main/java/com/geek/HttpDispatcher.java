@@ -3,7 +3,7 @@ package com.geek;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.geek.dto.university.UniversityResponse;
+import com.geek.dto.UniversityResponse;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpMethod;
 import com.mashape.unirest.http.HttpResponse;

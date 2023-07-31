@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"classpath:features"},
+        features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:DIR:target/SparkReport/Sparking.html"})
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:DIR:target/SparkReport/Spark.html"})
 public class RunCucumberTest {
 
 

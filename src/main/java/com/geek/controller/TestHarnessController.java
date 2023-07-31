@@ -1,4 +1,4 @@
-package controller;
+package com.geek.controller;
 
 import com.geek.CucumberTestRunner;
 import com.geek.helpers.Reporter;

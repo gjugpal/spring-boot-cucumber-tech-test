@@ -1,14 +1,13 @@
 package stepDefinitions;
 
 import com.geek.Gateway;
-import com.geek.dto.university.*;
+import com.geek.dto.*;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -20,7 +19,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 
-@CucumberContextConfiguration
 public class Steps {
 
     private Gateway request = new Gateway();
