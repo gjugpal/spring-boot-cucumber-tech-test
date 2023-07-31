@@ -1,6 +1,6 @@
 package com.geek;
 
-import com.geek.dto.university.*;
+import com.geek.dto.*;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.request.HttpRequest;
 import lombok.Getter;

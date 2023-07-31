@@ -1,4 +1,4 @@
-package com.geek.dto.university;
+package com.geek.dto;
 
 import com.geek.AbstractHttpSpecification;
 import com.mashape.unirest.http.HttpMethod;

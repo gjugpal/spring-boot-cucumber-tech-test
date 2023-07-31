@@ -1,4 +1,4 @@
-package com.geek.dto.university;
+package com.geek.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.EqualsAndHashCode;
