@@ -15,7 +15,7 @@
 mvn clean install
 ```
 
-Once the Spring Boot app is up and running, you can navigate to http://locaihost:8081
+Once the Spring Boot app is up and running, you can navigate to http://localhost:8081
 
 
 ### Spring Boot App
